@@ -2,7 +2,7 @@ import 'package:forestvpn_test/repositories/news/repository.dart';
 
 class MockNewsRepository implements AbstractNewsRepository {
   @override
-  Future<List<Article>> getArticles() async {
+  Future<List<Article>> getLatestArticles() async {
     return _mockArticles;
   }
 
@@ -10,6 +10,11 @@ class MockNewsRepository implements AbstractNewsRepository {
   @override
   Future<Article> getArticle(String id) async {
     return _mockArticles.firstWhere((e) => e.id == id);
+  }
+
+  @override
+  Future<List<Article>> getFeaturedArticles() async {
+    return _mockArticles;
   }
 }
 
